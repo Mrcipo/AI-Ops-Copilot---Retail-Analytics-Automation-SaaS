@@ -1,0 +1,31 @@
+﻿body {
+  margin: 0;
+  font-family: "Inter", system-ui, sans-serif;
+  background: #f6f7fb;
+  color: #111827;
+}
+
+.container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.status {
+  font-weight: 600;
+}
+
+.status.ok {
+  color: #16a34a;
+}
+
+.status.error {
+  color: #dc2626;
+}
+
+.status.loading {
+  color: #f59e0b;
+}
