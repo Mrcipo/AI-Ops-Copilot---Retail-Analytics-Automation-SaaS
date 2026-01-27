@@ -1,7 +1,11 @@
-﻿from fastapi import FastAPI
-import logging
+﻿import logging
+
+from fastapi import Depends, FastAPI
+from sqlalchemy import text
+from sqlalchemy.orm import Session
 
 from .core.config import settings
+from .db import get_db
 
 
 def configure_logging() -> None:
@@ -24,4 +28,10 @@ async def on_startup() -> None:
 
 @app.get("/api/v1/health")
 async def health() -> dict:
+    return {"status": "ok"}
+
+
+@app.get("/api/v1/db/ping")
+def db_ping(db: Session = Depends(get_db)) -> dict:
+    db.execute(text("SELECT 1"))
     return {"status": "ok"}

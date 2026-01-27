@@ -10,8 +10,14 @@
 2) Levantar el entorno:
    - docker compose up --build
 
+## Migraciones (Alembic)
+- Ejecutar migraciones dentro del contenedor backend:
+  - docker compose exec backend alembic upgrade head
+
 ## Smoke test
 - Backend healthcheck:
   - curl http://localhost:8000/api/v1/health
+- DB ping:
+  - curl http://localhost:8000/api/v1/db/ping
 - Frontend (UI):
   - http://localhost:5173

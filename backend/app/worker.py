@@ -7,3 +7,5 @@ celery_app = Celery(
     broker=settings.redis_url,
     backend=settings.redis_url,
 )
+
+celery_app.conf.broker_connection_retry_on_startup = True
